@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+body {
+
+    background-color: rgb(211, 211, 206);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.container {
+
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    box-shadow: 0 28px 20px #abb2b9;
+
+}
+
+.container input[type="text"],
+textarea {
+    margin-bottom: 20px;
+}
+
+.input-box input,
+textarea {
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-box input,
+textarea:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.radio-box {
+    color: grey;
+}
+
+.radio-box label {
+    padding: 0 20px 0 5px;
+    font-size: 14 px;
+}
+
+.radio-box label,
+.radio-box input {
+    cursor: pointer;
+}
+
+.button-container {
+    margin: 15px 0;
+}
+
+.button-container button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20 px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #547061,#699b80);
+}
+
+.button-container button:hover {
+    background-image: linear-gradient(to right, #699b80,#547061);
+
+}

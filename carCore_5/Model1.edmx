@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="carCoreEntitie.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'project.dbo.car_data' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="car_data">
+          <Key>
+            <PropertyRef Name="car_id" />
+            <PropertyRef Name="car_name" />
+            <PropertyRef Name="car_price" />
+            <PropertyRef Name="car_description" />
+            <PropertyRef Name="car_img" />
+          </Key>
+          <Property Name="car_id" Type="int" Nullable="false" />
+          <Property Name="car_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="car_price" Type="int" Nullable="false" />
+          <Property Name="car_description" Type="varchar(max)" Nullable="false" />
+          <Property Name="car_img" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="make" Type="int" />
+          <Property Name="model" Type="int" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="mileage" Type="int" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="user_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="car_id" Type="int" />
+          <Property Name="image_url" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMG_PRODUCT">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageData" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Models">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="brand_id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'project.dbo.rent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="rent">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="People" />
+            <PropertyRef Name="Tank" />
+            <PropertyRef Name="Speedometer" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="img" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="People" Type="int" Nullable="false" />
+          <Property Name="Tank" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Speedometer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="img" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="20" />
+          <Property Name="user_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK__Cars__make__66603565">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="make" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__model__6754599E">
+          <End Role="Models" Type="Self.Models" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Models">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__user_id__68487DD7">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Images__car_id__6B24EA82">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Models__brand_id__6383C8BA">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+          <End Role="Models" Type="Self.Models" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Models">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="carCoreEntitieStoreContainer">
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMG_PRODUCT" EntityType="Self.IMG_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="car_data" EntityType="Self.car_data" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[car_data].[car_id] AS [car_id], 
+[car_data].[car_name] AS [car_name], 
+[car_data].[car_price] AS [car_price], 
+[car_data].[car_description] AS [car_description], 
+[car_data].[car_img] AS [car_img]
+FROM [dbo].[car_data] AS [car_data]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="rent" EntityType="Self.rent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[rent].[Name] AS [Name], 
+[rent].[Year] AS [Year], 
+[rent].[People] AS [People], 
+[rent].[Tank] AS [Tank], 
+[rent].[Speedometer] AS [Speedometer], 
+[rent].[Type] AS [Type], 
+[rent].[Price] AS [Price], 
+[rent].[img] AS [img]
+FROM [dbo].[rent] AS [rent]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Cars__make__66603565" Association="Self.FK__Cars__make__66603565">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__model__6754599E" Association="Self.FK__Cars__model__6754599E">
+            <End Role="Models" EntitySet="Models" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__user_id__68487DD7" Association="Self.FK__Cars__user_id__68487DD7">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Images__car_id__6B24EA82" Association="Self.FK__Images__car_id__6B24EA82">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Models__brand_id__6383C8BA" Association="Self.FK__Models__brand_id__6383C8BA">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Models" EntitySet="Models" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="carCoreEntitie" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__make__66603565" FromRole="Brands" ToRole="Cars" />
+          <NavigationProperty Name="Models" Relationship="Self.FK__Models__brand_id__6383C8BA" FromRole="Brands" ToRole="Models" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="make" Type="Int32" />
+          <Property Name="model" Type="Int32" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mileage" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK__Cars__make__66603565" FromRole="Cars" ToRole="Brands" />
+          <NavigationProperty Name="Model1" Relationship="Self.FK__Cars__model__6754599E" FromRole="Cars" ToRole="Models" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Cars__user_id__68487DD7" FromRole="Cars" ToRole="Users" />
+          <NavigationProperty Name="Images" Relationship="Self.FK__Images__car_id__6B24EA82" FromRole="Cars" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="car_id" Type="Int32" />
+          <Property Name="image_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK__Images__car_id__6B24EA82" FromRole="Images" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="IMG_PRODUCT">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="brand_id" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK__Models__brand_id__6383C8BA" FromRole="Models" ToRole="Brands" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__model__6754599E" FromRole="Models" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__user_id__68487DD7" FromRole="Users" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="car_data">
+          <Key>
+            <PropertyRef Name="car_id" />
+            <PropertyRef Name="car_name" />
+            <PropertyRef Name="car_price" />
+            <PropertyRef Name="car_description" />
+            <PropertyRef Name="car_img" />
+          </Key>
+          <Property Name="car_id" Type="Int32" Nullable="false" />
+          <Property Name="car_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="car_price" Type="Int32" Nullable="false" />
+          <Property Name="car_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="car_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rent">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="People" />
+            <PropertyRef Name="Tank" />
+            <PropertyRef Name="Speedometer" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="img" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="People" Type="Int32" Nullable="false" />
+          <Property Name="Tank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Speedometer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cars__make__66603565">
+          <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="make" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Models__brand_id__6383C8BA">
+          <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Models" Type="Self.Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Models">
+              <PropertyRef Name="brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__model__6754599E">
+          <End Role="Models" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Models">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__user_id__68487DD7">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Images__car_id__6B24EA82">
+          <End Role="Cars" Type="Self.Car" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="carCoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="IMG_PRODUCT" EntityType="Self.IMG_PRODUCT" />
+          <EntitySet Name="Models" EntityType="Self.Model" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="car_data" EntityType="Self.car_data" />
+          <EntitySet Name="rents" EntityType="Self.rent" />
+          <AssociationSet Name="FK__Cars__make__66603565" Association="Self.FK__Cars__make__66603565">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Models__brand_id__6383C8BA" Association="Self.FK__Models__brand_id__6383C8BA">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Models" EntitySet="Models" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__model__6754599E" Association="Self.FK__Cars__model__6754599E">
+            <End Role="Models" EntitySet="Models" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__user_id__68487DD7" Association="Self.FK__Cars__user_id__68487DD7">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Images__car_id__6B24EA82" Association="Self.FK__Images__car_id__6B24EA82">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="carCoreEntitieStoreContainer" CdmEntityContainer="carCoreEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="carCoreEntitie.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="carCoreEntitie.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="make" ColumnName="make" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="mileage" ColumnName="mileage" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="carCoreEntitie.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="car_id" ColumnName="car_id" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMG_PRODUCT">
+            <EntityTypeMapping TypeName="carCoreEntitie.IMG_PRODUCT">
+              <MappingFragment StoreEntitySet="IMG_PRODUCT">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="carCoreEntitie.Model">
+              <MappingFragment StoreEntitySet="Models">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="carCoreEntitie.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="carCoreEntitie.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="car_data">
+            <EntityTypeMapping TypeName="carCoreEntitie.car_data">
+              <MappingFragment StoreEntitySet="car_data">
+                <ScalarProperty Name="car_id" ColumnName="car_id" />
+                <ScalarProperty Name="car_name" ColumnName="car_name" />
+                <ScalarProperty Name="car_price" ColumnName="car_price" />
+                <ScalarProperty Name="car_description" ColumnName="car_description" />
+                <ScalarProperty Name="car_img" ColumnName="car_img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rents">
+            <EntityTypeMapping TypeName="carCoreEntitie.rent">
+              <MappingFragment StoreEntitySet="rent">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="People" ColumnName="People" />
+                <ScalarProperty Name="Tank" ColumnName="Tank" />
+                <ScalarProperty Name="Speedometer" ColumnName="Speedometer" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

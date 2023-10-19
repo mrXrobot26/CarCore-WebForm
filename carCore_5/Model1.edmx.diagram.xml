@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44ce256c4180459597ca8fb408e29c7a" Name="Diagram1">
+        <EntityTypeShape EntityType="carCoreEntitie.Brand" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.Car" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.Image" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.IMG_PRODUCT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.Model" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.User" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.car_data" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="carCoreEntitie.rent" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="carCoreEntitie.FK__Cars__make__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="carCoreEntitie.FK__Models__brand_id__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="carCoreEntitie.FK__Cars__model__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="carCoreEntitie.FK__Cars__user_id__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="carCoreEntitie.FK__Images__car_id__6B24EA82" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

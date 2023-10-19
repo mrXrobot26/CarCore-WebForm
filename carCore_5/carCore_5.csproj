@@ -1,0 +1,577 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{596E29E2-9751-4138-8CC8-BCF2B412B6E2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>carCore_5</RootNamespace>
+    <AssemblyName>carCore_5</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\css\._about.css" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\css\._contact.css" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\css\._master.css" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\html\._about.html" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\html\._contact.html" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\html\._home.html" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._besaa.jpg" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._BUGATTI CHIRON Pur Sport_ ‘C’ the Drift.mp4" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._electric-car %281%29.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._fast.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._icon.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._logo.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._main2.jpg" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._rewaa.jpg" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-1.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-2.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-3.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-4.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-5.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-6.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\images\._vehicle-7.png" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\js\._about.js" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\js\._bootstrap.js" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\js\._jquery.js" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\js\._script.js" />
+    <Content Include="tasks\CarCore\about.js" />
+    <Content Include="tasks\CarCore\bus\css\style.css" />
+    <Content Include="tasks\CarCore\bus\index.aspx" />
+    <Content Include="tasks\CarCore\bus\index.html" />
+    <Content Include="tasks\CarCore\Car-Repair\css\style.css" />
+    <Content Include="tasks\CarCore\Car-Repair\index.aspx" />
+    <Content Include="tasks\CarCore\Car-Repair\index.html" />
+    <Content Include="tasks\CarCore\Car-Repair\re.svg" />
+    <Content Include="tasks\CarCore\Car-Repair\repair.svg" />
+    <Content Include="tasks\CarCore\cars\css\main.css" />
+    <Content Include="tasks\CarCore\cars\images\c1.jpg" />
+    <Content Include="tasks\CarCore\cars\index.aspx" />
+    <Content Include="tasks\CarCore\cars\index.html" />
+    <Content Include="tasks\CarCore\cars\js\mian.js" />
+    <Content Include="tasks\CarCore\css\about.css" />
+    <Content Include="tasks\CarCore\css\contact.css" />
+    <Content Include="tasks\CarCore\css\home.css" />
+    <Content Include="tasks\CarCore\Error\css\style.css" />
+    <Content Include="tasks\CarCore\Error\index.aspx" />
+    <Content Include="tasks\CarCore\Error\index.html" />
+    <Content Include="tasks\CarCore\Filter\css\style.css" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\fontawesome-css\all.css" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-brands-400.svg" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-regular-400.svg" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-solid-900.svg" />
+    <Content Include="tasks\CarCore\Filter\index.aspx" />
+    <Content Include="tasks\CarCore\Filter\index.html" />
+    <Content Include="tasks\CarCore\Filter\js\main.js" />
+    <Content Include="tasks\CarCore\html\about.aspx" />
+    <Content Include="tasks\CarCore\html\about.html" />
+    <Content Include="tasks\CarCore\html\contact.aspx" />
+    <Content Include="tasks\CarCore\html\contact.html" />
+    <Content Include="tasks\CarCore\html\home.aspx" />
+    <Content Include="tasks\CarCore\html\home.html" />
+    <Content Include="tasks\CarCore\images\abdelghani.jpg" />
+    <Content Include="tasks\CarCore\images\about.jpg" />
+    <Content Include="tasks\CarCore\images\abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg" />
+    <Content Include="tasks\CarCore\images\ana.jpg" />
+    <Content Include="tasks\CarCore\images\b %281%29.jpg" />
+    <Content Include="tasks\CarCore\images\b %282%29.jpg" />
+    <Content Include="tasks\CarCore\images\bb.jpg" />
+    <Content Include="tasks\CarCore\images\bessa.jpg" />
+    <Content Include="tasks\CarCore\images\bg %281%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg %282%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg %283%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg %284%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg %285%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg %286%29.jpg" />
+    <Content Include="tasks\CarCore\images\bg.jpg" />
+    <Content Include="tasks\CarCore\images\BUGATTI CHIRON Pur Sport_ ‘C’ the Drift.mp4" />
+    <Content Include="tasks\CarCore\images\company.jpg" />
+    <Content Include="tasks\CarCore\images\credit-card-solid.svg" />
+    <Content Include="tasks\CarCore\images\electric-car %281%29.png" />
+    <Content Include="tasks\CarCore\images\fast.png" />
+    <Content Include="tasks\CarCore\images\icon.png" />
+    <Content Include="tasks\CarCore\images\letter-bg.png" />
+    <Content Include="tasks\CarCore\images\log-in.jpg" />
+    <Content Include="tasks\CarCore\images\logo.png" />
+    <Content Include="tasks\CarCore\images\main2.jpg" />
+    <Content Include="tasks\CarCore\images\namnam.jpg" />
+    <Content Include="tasks\CarCore\images\NicePng_lamborghini-car-png_2547107.png" />
+    <Content Include="tasks\CarCore\images\nmnm💕💕💕💕💕💕💕💕.jpg" />
+    <Content Include="tasks\CarCore\images\photo_2023-04-25_06-21-20.jpg" />
+    <Content Include="tasks\CarCore\images\profile-sample5.jpg" />
+    <Content Include="tasks\CarCore\images\rewaa.jpg" />
+    <Content Include="tasks\CarCore\images\sell.jpg" />
+    <Content Include="tasks\CarCore\images\shams.jpg" />
+    <Content Include="tasks\CarCore\images\team.png" />
+    <Content Include="tasks\CarCore\images\v-8.png" />
+    <Content Include="tasks\CarCore\images\v-9.png" />
+    <Content Include="tasks\CarCore\images\vehicle-1.png" />
+    <Content Include="tasks\CarCore\images\vehicle-2.png" />
+    <Content Include="tasks\CarCore\images\vehicle-3.png" />
+    <Content Include="tasks\CarCore\images\vehicle-4.png" />
+    <Content Include="tasks\CarCore\images\vehicle-5.png" />
+    <Content Include="tasks\CarCore\images\vehicle-6.png" />
+    <Content Include="tasks\CarCore\images\vehicle-7.png" />
+    <Content Include="tasks\CarCore\images\walid.jpg" />
+    <Content Include="tasks\CarCore\js\about.js" />
+    <Content Include="tasks\CarCore\js\bootstrap.js" />
+    <Content Include="tasks\CarCore\js\jquery.js" />
+    <Content Include="tasks\CarCore\js\script.js" />
+    <Content Include="tasks\CarCore\log-in\css\style.css" />
+    <Content Include="tasks\CarCore\log-in\img\bg.svg" />
+    <Content Include="tasks\CarCore\log-in\img\user.svg" />
+    <Content Include="tasks\CarCore\log-in\index.aspx" />
+    <Content Include="tasks\CarCore\log-in\index.html" />
+    <Content Include="tasks\CarCore\log-in\js\main%281%29.js" />
+    <Content Include="tasks\CarCore\log-in\js\main.js" />
+    <Content Include="tasks\CarCore\Moving car\css\style%281%29.css" />
+    <Content Include="tasks\CarCore\Moving car\css\style.css" />
+    <Content Include="tasks\CarCore\Moving car\index.aspx" />
+    <Content Include="tasks\CarCore\Moving car\index.html" />
+    <Content Include="tasks\CarCore\off-payment\css\style.css" />
+    <Content Include="tasks\CarCore\off-payment\index.aspx" />
+    <Content Include="tasks\CarCore\off-payment\index.html" />
+    <Content Include="tasks\CarCore\online-payment\cards.png" />
+    <Content Include="tasks\CarCore\online-payment\css\style.css" />
+    <Content Include="tasks\CarCore\online-payment\index.aspx" />
+    <Content Include="tasks\CarCore\online-payment\index.html" />
+    <Content Include="tasks\CarCore\product-page\.gitignore" />
+    <Content Include="tasks\CarCore\product-page\app.js" />
+    <Content Include="tasks\CarCore\product-page\images\icon-cart.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-close.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-delete.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-menu.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-minus.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-next.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-plus.svg" />
+    <Content Include="tasks\CarCore\product-page\images\icon-previous.svg" />
+    <Content Include="tasks\CarCore\product-page\images\image-1-thumbnail.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-1.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-2-thumbnail.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-2.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-3-thumbnail.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-3.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-4-thumbnail.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\image-4.jpg" />
+    <Content Include="tasks\CarCore\product-page\images\logo%281%29.png" />
+    <Content Include="tasks\CarCore\product-page\images\logo.png" />
+    <Content Include="tasks\CarCore\product-page\images\user.png" />
+    <Content Include="tasks\CarCore\product-page\index.aspx" />
+    <Content Include="tasks\CarCore\product-page\index.html" />
+    <Content Include="tasks\CarCore\product-page\style.css" />
+    <Content Include="tasks\CarCore\Registration Form\bg.svg" />
+    <Content Include="tasks\CarCore\Registration Form\index.aspx" />
+    <Content Include="tasks\CarCore\Registration Form\index.html" />
+    <Content Include="tasks\CarCore\Registration Form\script.js" />
+    <Content Include="tasks\CarCore\Registration Form\style.css" />
+    <Content Include="tasks\CarCore\Rent-car\css\style.css" />
+    <Content Include="tasks\CarCore\Rent-car\favicon.svg" />
+    <Content Include="tasks\CarCore\Rent-car\images\blog-1.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\blog-2.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\blog-3.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\blog-4.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\blog-5.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-1.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-2.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-3.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-4.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-5.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\car-6.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\hero-banner.jpg" />
+    <Content Include="tasks\CarCore\Rent-car\images\logo.svg" />
+    <Content Include="tasks\CarCore\Rent-car\index.aspx" />
+    <Content Include="tasks\CarCore\Rent-car\index.html" />
+    <Content Include="tasks\CarCore\Rent-car\js\mian.js" />
+    <Content Include="tasks\CarCore\Rent\css\style.css" />
+    <Content Include="tasks\CarCore\Rent\index.aspx" />
+    <Content Include="tasks\CarCore\Rent\index.html" />
+    <Content Include="tasks\CarCore\Rent\js\main.js" />
+    <Content Include="tasks\CarCore\sell\index.aspx" />
+    <Content Include="tasks\CarCore\sell\index.html" />
+    <Content Include="tasks\CarCore\sell\master 3.css" />
+    <Content Include="tasks\CarCore\Successful\css\style.css" />
+    <Content Include="tasks\CarCore\Successful\index.aspx" />
+    <Content Include="tasks\CarCore\Successful\index.html" />
+    <Content Include="tasks\images\abdelghani.jpg" />
+    <Content Include="tasks\images\about.jpg" />
+    <Content Include="tasks\images\abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg" />
+    <Content Include="tasks\images\ana.jpg" />
+    <Content Include="tasks\images\b %281%29.jpg" />
+    <Content Include="tasks\images\b %282%29.jpg" />
+    <Content Include="tasks\images\bb.jpg" />
+    <Content Include="tasks\images\bessa.jpg" />
+    <Content Include="tasks\images\bg %281%29.jpg" />
+    <Content Include="tasks\images\bg %282%29.jpg" />
+    <Content Include="tasks\images\bg %283%29.jpg" />
+    <Content Include="tasks\images\bg %284%29.jpg" />
+    <Content Include="tasks\images\bg %285%29.jpg" />
+    <Content Include="tasks\images\bg %286%29.jpg" />
+    <Content Include="tasks\images\bg.jpg" />
+    <Content Include="tasks\images\BUGATTI CHIRON Pur Sport_ ‘C’ the Drift.mp4" />
+    <Content Include="tasks\images\company.jpg" />
+    <Content Include="tasks\images\credit-card-solid.svg" />
+    <Content Include="tasks\images\electric-car %281%29.png" />
+    <Content Include="tasks\images\fast.png" />
+    <Content Include="tasks\images\icon.png" />
+    <Content Include="tasks\images\Lamborghini-Urus-Transparent-Image.png" />
+    <Content Include="tasks\images\letter-bg.png" />
+    <Content Include="tasks\images\log-in.jpg" />
+    <Content Include="tasks\images\logo.png" />
+    <Content Include="tasks\images\main2.jpg" />
+    <Content Include="tasks\images\namnam.jpg" />
+    <Content Include="tasks\images\NicePng_lamborghini-car-png_2547107.png" />
+    <Content Include="tasks\images\nmnm💕💕💕💕💕💕💕💕.jpg" />
+    <Content Include="tasks\images\photo_2023-04-25_06-21-20.jpg" />
+    <Content Include="tasks\images\profile-sample5.jpg" />
+    <Content Include="tasks\images\rewaa.jpg" />
+    <Content Include="tasks\images\sell.jpg" />
+    <Content Include="tasks\images\shams.jpg" />
+    <Content Include="tasks\images\team.png" />
+    <Content Include="tasks\images\vehicle-1.png" />
+    <Content Include="tasks\images\vehicle-2.png" />
+    <Content Include="tasks\images\vehicle-3.png" />
+    <Content Include="tasks\images\vehicle-4.png" />
+    <Content Include="tasks\images\vehicle-5.png" />
+    <Content Include="tasks\images\vehicle-6.png" />
+    <Content Include="tasks\images\vehicle-7.png" />
+    <Content Include="tasks\images\walid.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Brand.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Car.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="car_data.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMG_PRODUCT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\bus\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\bus\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Car-Repair\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Car-Repair\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\cars\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\cars\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Error\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Error\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Filter\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Filter\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\html\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\log-in\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\log-in\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Moving car\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Moving car\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\off-payment\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\off-payment\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\online-payment\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\online-payment\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\product-page\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\product-page\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Registration Form\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Registration Form\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Rent-car\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Rent-car\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Rent\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Rent\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\sell\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\sell\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tasks\CarCore\Successful\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks\CarCore\Successful\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="tasks\.vscode\settings.json" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\._CarCore" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\.vscode\._launch.json" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\._.vscode" />
+    <Content Include="tasks\CarCoreFinal\__MACOSX\CarCore\._js" />
+    <Content Include="tasks\CarCore\.vscode\launch.json" />
+    <Content Include="tasks\CarCore\bus\css\style.css.map" />
+    <Content Include="tasks\CarCore\bus\css\style.scss" />
+    <Content Include="tasks\CarCore\cars\css\main.css.map" />
+    <Content Include="tasks\CarCore\cars\css\main.scss" />
+    <Content Include="tasks\CarCore\cars\images\c2.avif" />
+    <Content Include="tasks\CarCore\cars\images\c3.avif" />
+    <Content Include="tasks\CarCore\cars\images\c4.avif" />
+    <Content Include="tasks\CarCore\cars\images\c5.avif" />
+    <Content Include="tasks\CarCore\cars\images\c6.avif" />
+    <Content Include="tasks\CarCore\Error\css\style.sass" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-brands-400.eot" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-brands-400.ttf" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-brands-400.woff" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-brands-400.woff2" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-regular-400.eot" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-regular-400.ttf" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-regular-400.woff" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-regular-400.woff2" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-solid-900.eot" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-solid-900.ttf" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-solid-900.woff" />
+    <Content Include="tasks\CarCore\Filter\fontawesome-5\webfonts\fa-solid-900.woff2" />
+    <Content Include="tasks\CarCore\off-payment\.vscode\launch.json" />
+    <Content Include="tasks\CarCore\online-payment\.vscode\launch.json" />
+    <Content Include="tasks\CarCore\product-page\README-template.md" />
+    <Content Include="tasks\CarCore\product-page\README.md" />
+    <Content Include="tasks\CarCore\product-page\style-guide.md" />
+    <Content Include="tasks\CarCore\Rent\css\style.css.map" />
+    <Content Include="tasks\CarCore\Rent\css\style.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61889</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61889/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
